@@ -26,15 +26,15 @@ public class Strategy {
 
     public static int secondPhase(Card[] cardsArray, Integer currentBuyIn, Integer ourStack) {
         if (Combinations.hasPoker(cardsArray))
-            return (int) Math.round(ourStack*1.0);
+            return (int) Math.round(ourStack*0.5);
         if (Combinations.hasDrill(cardsArray))
             return (int) Math.round(ourStack*0.2);
         if (Combinations.hasFlush(cardsArray))
-            return (int) Math.round(ourStack*1.0);
+            return (int) Math.round(ourStack*0.5);
         if (Combinations.hasStraight(cardsArray))
             return (int) Math.round(ourStack*0.5);
         if (Combinations.hasFull(cardsArray))
-            return (int) Math.round(ourStack*1.0);
+            return (int) Math.round(ourStack*0.5);
         if (Combinations.hasTwoPair(cardsArray))
             return (int) Math.round(ourStack*0.3); //0.2
         if (Combinations.hasTopPair(cardsArray))
@@ -45,7 +45,7 @@ public class Strategy {
 
     public static int thirdPhase(Card[] cardsArray, Integer buyIn, Integer ourStack) {
         if (Combinations.hasPoker(cardsArray))
-            return (int) Math.round(ourStack*1.0);
+            return (int) Math.round(ourStack*0.5);
         if (Combinations.hasFlush(cardsArray))
             return (int) Math.round(ourStack*0.8); //0.7
         if (Combinations.hasFull(cardsArray))
@@ -59,7 +59,7 @@ public class Strategy {
 
     public static int fourthPhase(Card[] cardsArray, Integer buyIn, Integer ourStack) {
         if (Combinations.hasPoker(cardsArray))
-            return (int) Math.round(ourStack*1);
+            return (int) Math.round(ourStack*0.5);
         if (Combinations.hasFlush(cardsArray))
             return (int) Math.round(ourStack*0.5);
         if (Combinations.hasFull(cardsArray))
