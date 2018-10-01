@@ -47,7 +47,7 @@ public class Player {
 
 
 
-        JsonArray comCards = request.getAsJsonObject().get("community_cards").getAsJsonArray();
+        JsonArray comCards = obj.get("community_cards").getAsJsonArray();
 
         System.out.println("Comcards" + comCards);
 
