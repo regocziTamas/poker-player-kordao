@@ -10,4 +10,17 @@ public class Util {
         JsonObject obj = request.getAsJsonObject();
         return String.valueOf(obj.get(data));
     }
+
+    public static boolean isSomeoneAllIn(JsonArray players){
+
+        for(JsonElement el: players){
+            JsonObject elObj = el.getAsJsonObject();
+            if(elObj.get("stack").getAsInt() == elObj.get("bet").getAsInt()){
+                return true;
+            }
+        }
+
+        return false;
+
+    }
 }

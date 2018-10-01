@@ -185,6 +185,25 @@ public class Combinations {
         return cards;
     }
 
+    public static boolean checkForAceAndKing(Card[] cards){
+        boolean acefound = false;
+        boolean kingfound = false;
+
+        for(int i = 0; i < cards.length; i++){
+            if(cards[i].getRank() == 14){
+                acefound = true;
+            }
+            if(cards[i].getRank() == 13){
+                kingfound = true;
+            }
+
+        }
+
+        return acefound && kingfound;
+
+
+    }
+
     private static Integer[] getRanks(Card[] cards){
         Integer[] ranks = new Integer[cards.length];
         int index = 0;
