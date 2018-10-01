@@ -10,6 +10,10 @@ public class Strategy {
             return currentBuyIn+25;
         }
 
+        if(Combinations.checkForAceAndKing(cards)){
+            return currentBuyIn;
+        }
+
 
 
         return 0;
@@ -27,7 +31,7 @@ public class Strategy {
             return (int) Math.round(ourStack*0.5);
         if (Combinations.hasFull(cardsArray))
             return (int) Math.round(ourStack*1);
-        
+
 
         return 0;
     }
