@@ -63,20 +63,6 @@ public class Combinations {
         return firstpair && secondpair;
     }
 
-    public static boolean isFlushPossible(Card[] cards) {
-        Map<String, Integer> suitCounter = new HashMap<>();
-        for (String suit: getSuits(cards)) {
-            if (suitCounter.containsKey(suit))
-                suitCounter.put(suit, suitCounter.get(suit) + 1);
-            else
-                suitCounter.put(suit, 1);
-        }
-        for(String key: suitCounter.keySet())
-            if (suitCounter.get(key) == 4)
-                return true;
-        return false;
-    }
-
     public static boolean hasFlush(Card[] cards) {
         Map<String, Integer> suitCounter = new HashMap<>();
         for (String suit: getSuits(cards)) {
@@ -221,5 +207,23 @@ public class Combinations {
             index++;
         }
         return suits;
+    }
+
+    public boolean hasTopPair(Card[] cards){
+        boolean hasPair = hasPair(cards);
+
+        Card highestCardinHand = cards[0].getRank() > cards[1].getRank() ? cards[0] : cards[1];
+        if(hasPair){
+            for(int i = 2; i<cards.length;i++){
+                if(cards[i].getRank() == highestCardinHand.getRank()){
+                    return true;
+                }
+            }
+            return false;
+
+
+        }else{return false;}
+
+
     }
 }
