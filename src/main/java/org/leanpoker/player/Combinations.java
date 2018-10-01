@@ -116,12 +116,18 @@ public class Combinations {
     }
 
     private static Card[] sortCards(Card[] cards){
-        for(int i = cards.length-1; i > 0; i--)
+        Card[] sortedCards = new Card[cards.length];
+        int index = 0;
+        for (Card card: cards){
+            sortedCards[index] = card;
+            index++;
+        }
+        for(int i = sortedCards.length-1; i > 0; i--)
             for(int j = 0; j < i; j++){
-                if(cards[j].getRank() > cards[j+1].getRank()) {
-                    Card tmp = cards[j];
-                    cards[j] = cards[j+1];
-                    cards[j+1] = tmp;
+                if(sortedCards[j].getRank() > sortedCards[j+1].getRank()) {
+                    Card tmp = sortedCards[j];
+                    sortedCards[j] = sortedCards[j+1];
+                    sortedCards[j+1] = tmp;
                 }
             }
         return cards;
