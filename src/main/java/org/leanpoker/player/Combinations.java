@@ -52,16 +52,15 @@ public class Combinations {
     }
 
     public static boolean hasTwoPair(Card[] cards){
-        int firstpair = 0;
-        for (int i = 0; i < cards.length; i++)
-            for (Card card: cards)
-                if (card.getRank() == cards[i].getRank() && card != cards[i] && firstpair != card.getRank()){
-                    if (firstpair == 0)
-                        firstpair = card.getRank();
-                    else
-                        return true;
-                }
-        return false;
+        boolean firstpair = false;
+        boolean secondpair = false;
+        for (int i = 2; i < cards.length; i++) {
+            if (cards[i].getRank() == cards[0].getRank())
+                firstpair = true;
+            if (cards[i].getRank() == cards[1].getRank())
+                secondpair = true;
+        }
+        return firstpair && secondpair;
     }
 
     public static boolean isFlushPossible(Card[] cards) {

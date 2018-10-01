@@ -28,7 +28,8 @@ public class Strategy {
             return (int) Math.round(ourStack*0.5);
         if (Combinations.hasFull(cardsArray))
             return (int) Math.round(ourStack*1);
-
+        if (Combinations.hasTwoPair(cardsArray))
+            return (int) Math.round(ourStack*0.2);
 
         return 0;
     }
@@ -43,7 +44,8 @@ public class Strategy {
             return (int) Math.round(ourStack*0.7);
         if (Combinations.hasStraight(cardsArray))
             return (int) Math.round(ourStack*0.5);
-
+        if (Combinations.hasTwoPair(cardsArray))
+            return (int) Math.round(ourStack*0.1);
         return 0;
     }
 
