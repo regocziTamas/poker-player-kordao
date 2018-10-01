@@ -16,11 +16,11 @@ public class Player {
 
         JsonObject obj = request.getAsJsonObject();
 
-        JsonElement el = obj.get("players");
-
-        JsonArray arr = ((JsonArray) el);
+        JsonArray arr = obj.get("players").getAsJsonArray();
 
         JsonObject ourCards = null;
+
+        System.out.println("ARRARRRARR: "+ arr);
 
         for(JsonElement element: arr){
             JsonObject objElement = (JsonObject) element;
