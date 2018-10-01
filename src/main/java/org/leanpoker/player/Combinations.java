@@ -105,6 +105,31 @@ public class Combinations {
         return false;
     }
 
+    public static boolean isStraightPossible(Card[] cards){
+        cards = sortCards(cards);
+        boolean hasAce = false;
+        if (cards[cards.length - 1].getRank() == 14)
+            hasAce = true;
+        int counter = 0;
+        int gap = 0;
+        if (cards[0].getRank() == 2 && hasAce)
+            counter++;
+        for (int i = 0; i < cards.length; i++){
+            if (cards[i].getRank() == cards[i+1].getRank() - 1)
+                counter++;
+            else
+                if (gap == 0)
+                    gap = 1;
+                else {
+                    counter = 0;
+                    gap = 0;
+                }
+        }
+        if (counter >= 5)
+            return true;
+        return false;
+    }
+
     public static boolean hasStraight(Card[] cards){
         cards = sortCards(cards);
         boolean hasAce = false;
