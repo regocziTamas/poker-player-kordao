@@ -1,0 +1,59 @@
+package org.leanpoker.player;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Combinations {
+    public boolean hasPoker(Card[] cards){
+        Map<String, Integer> rankCounter = new HashMap<>();
+        for(String rank: getRanks(cards)){
+            if (rankCounter.containsKey(rank))
+                rankCounter.put(rank, rankCounter.get(rank) + 1);
+            else
+                rankCounter.put(rank, 1);
+        }
+        for(String key: rankCounter.keySet())
+            if (rankCounter.get(key) == 4)
+                return true;
+        return false;
+    }
+
+    public boolean hasFull(Card[] cards){
+        Map<String, Integer> rankCounter = new HashMap<>();
+        for(String rank: getRanks(cards)){
+            if (rankCounter.containsKey(rank))
+                rankCounter.put(rank, rankCounter.get(rank) + 1);
+            else
+                rankCounter.put(rank, 1);
+        }
+        String firstRank = "";
+        for(String key: rankCounter.keySet()){
+            if (rankCounter.get(key) >= 3)
+                firstRank = key;
+            else if (rankCounter.get(key) >= 2 && !key.equals(firstRank))
+                return true;
+
+        }
+        return false;
+    }
+
+    private String[] getRanks(Card[] cards){
+        String[] ranks = new String[cards.length];
+        int index = 0;
+        for (Card card: cards){
+            ranks[index] = card.getRank();
+            index++;
+        }
+        return ranks;
+    }
+
+    private String[] getSuits(Card[] cards){
+        String[] suits = new String[cards.length];
+        int index = 0;
+        for (Card card: cards){
+            suits[index] = card.getSuit();
+            index++;
+        }
+        return suits;
+    }
+}
