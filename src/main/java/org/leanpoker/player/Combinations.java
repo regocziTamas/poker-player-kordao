@@ -222,4 +222,14 @@ public class Combinations {
 
 
     }
+
+    public boolean hasQuiteGoodHand(Card[] cards){
+        if(!cards[0].getSuit().equals(cards[1].getSuit())){
+            return false;
+        }
+        return cards[0].getRank() > 9 && cards[1].getRank() > 9;
+
+
+
+    }
 }
