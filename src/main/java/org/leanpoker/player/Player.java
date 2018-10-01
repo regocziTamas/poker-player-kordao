@@ -87,7 +87,8 @@ public class Player {
 
         //
         if (allPlayers - playerOutCounter == 2)
-            return ourstack;
+            if (cardsArray[0].getRank() >=8 && cardsArray[1].getRank() >= 8)
+                return ourstack;
         //
 
        
