@@ -90,6 +90,12 @@ public class Player {
             return ourstack;
         //
 
+        /*
+        if (cards.size() == 2) {return Strategy.firstPhase(cardsArray, currentBuyIn);}
+        if (cards.size() == 5) {return Strategy.secondPhase(cardsArray, currentBuyIn);}
+        if (cards.size() == 6) {return Strategy.thirdPhase(cardsArray, currentBuyIn);}
+        if (cards.size() == 7) {return Strategy.fourthPhase(cardsArray, currentBuyIn);}
+        */
 
         return 0;
     }
