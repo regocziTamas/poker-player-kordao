@@ -1,7 +1,5 @@
 package org.leanpoker.player;
 
-import java.util.List;
-
 public class Strategy {
 
     public static int firstPhase(Card[] cards, Integer currentBuyIn, Integer ourStack) {
@@ -40,10 +38,10 @@ public class Strategy {
         }
         if (Combinations.hasStraight(cardsArray))
             return (int) Math.round(ourStack*0.5);
-        /*if (Combinations.hasFull(cardsArray)) {
+        if (Combinations.hasFull(cardsArray)) {
             System.out.println("full");
             return (int) Math.round(ourStack * 0.5);
-        }*/
+        }
         if (Combinations.hasTwoPair(cardsArray))
             return (int) Math.round(ourStack*0.3); //0.2
         if (Combinations.hasTopPair(cardsArray))
@@ -57,8 +55,8 @@ public class Strategy {
             return (int) Math.round(ourStack*1);
         if (Combinations.hasFlush(cardsArray))
             return (int) Math.round(ourStack*1); //0.7
-        //if (Combinations.hasFull(cardsArray))
-        //    return (int) Math.round(ourStack*0.7);
+        if (Combinations.hasFull(cardsArray))
+           return (int) Math.round(ourStack*0.7);
         if (Combinations.hasStraight(cardsArray))
             return (int) Math.round(ourStack*0.5);
         if (Combinations.hasTwoPair(cardsArray))
@@ -71,8 +69,8 @@ public class Strategy {
             return (int) Math.round(ourStack*1);
         if (Combinations.hasFlush(cardsArray))
             return (int) Math.round(ourStack*1);
-        //if (Combinations.hasFull(cardsArray))
-        //    return (int) Math.round(ourStack*0.5);
+        if (Combinations.hasFull(cardsArray))
+            return (int) Math.round(ourStack*0.5);
         if (Combinations.hasStraight(cardsArray))
             return (int) Math.round(ourStack*0.5);
 

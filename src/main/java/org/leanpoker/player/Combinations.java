@@ -77,6 +77,7 @@ public class Combinations {
 
 
 
+
     public static boolean hasFull(Card[] cards){
         Map<Integer, Integer> rankCounter = new HashMap<>();
         for(Integer rank: getRanks(cards)){
@@ -85,20 +86,19 @@ public class Combinations {
             else
                 rankCounter.put(rank, 1);
         }
-        Integer firstRank = 0;
-        for(Integer key: rankCounter.keySet()){
-            if (rankCounter.get(key) >= 3)
-                if (firstRank.equals(1))
-                    firstRank = key;
-                else
-                    return true;
+        boolean hasMinimumTwo = false;
+        boolean hasMinimumThree = false;
+        for (Integer key: rankCounter.keySet()){
+            if (rankCounter.get(key) >= 3){
+                if (hasMinimumThree)
+                    hasMinimumTwo = true;
+                hasMinimumThree = true;
+            }
             else if (rankCounter.get(key) >= 2)
-                if (firstRank.equals(1))
-                    firstRank = key;
-                else
-                    return true;
-
+                hasMinimumTwo = true;
         }
+        if (hasMinimumThree && hasMinimumTwo)
+            return false;
         return false;
     }
 
