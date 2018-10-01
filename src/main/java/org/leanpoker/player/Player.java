@@ -86,9 +86,9 @@ public class Player {
             return currentBuyIn + currentBuyIn * (Combinations.hasPairInHand(cardsArray) - 10);
 
         //
-        if (allPlayers - playerOutCounter == 2)
-            if (cardsArray[0].getRank() >=8 && cardsArray[1].getRank() >= 8)
-                return ourstack;
+        //if (allPlayers - playerOutCounter == 2)
+        //    if (cardsArray[0].getRank() >=8 && cardsArray[1].getRank() >= 8)
+        //        return ourstack;
         //
 
        
