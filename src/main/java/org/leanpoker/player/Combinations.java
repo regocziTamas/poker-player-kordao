@@ -51,6 +51,19 @@ public class Combinations {
         return false;
     }
 
+    public static boolean hasTwoPair(Card[] cards){
+        int firstpair = 0;
+        for (int i = 0; i < cards.length; i++)
+            for (Card card: cards)
+                if (card.getRank() == cards[i].getRank() && card != cards[i] && firstpair != card.getRank()){
+                    if (firstpair == 0)
+                        firstpair = card.getRank();
+                    else
+                        return true;
+                }
+        return false;
+    }
+
     public static boolean hasFlush(Card[] cards) {
         Map<String, Integer> suitCounter = new HashMap<>();
         for (String suit: getSuits(cards)) {
