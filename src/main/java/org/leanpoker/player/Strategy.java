@@ -21,6 +21,8 @@ public class Strategy {
             return 10000;
         if (Combinations.hasFlush(cardsArray))
             return 10000;
+        if (Combinations.hasStraight(cardsArray))
+            return 10000;
         return 0;
     }
 
@@ -31,6 +33,8 @@ public class Strategy {
             return 10000;
         if (Combinations.hasFlush(cardsArray))
             return 10000;
+        if (Combinations.hasStraight(cardsArray))
+            return 10000;
         return 0;
     }
 
@@ -40,6 +44,8 @@ public class Strategy {
         if (Combinations.hasDrill(cardsArray))
             return 10000;
         if (Combinations.hasFlush(cardsArray))
+            return 10000;
+        if (Combinations.hasStraight(cardsArray))
             return 10000;
         return 0;
     }
