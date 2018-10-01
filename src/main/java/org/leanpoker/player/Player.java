@@ -4,11 +4,13 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class Player {
 
-    static final String VERSION = "1.1";
+    static final String VERSION = "1.5";
 
     public static int betRequest(JsonElement request) {
 
@@ -20,21 +22,31 @@ public class Player {
 
         JsonObject ourCards = null;
 
-        System.out.println("ARRARRRARR: "+ arr);
 
 
 
         for(JsonElement element: arr){
             JsonObject objElement = element.getAsJsonObject();
-            if(objElement.get("name").equals("KorDAO")){
-                System.out.println("123 " + objElement);
+            String name = objElement.get("name").getAsString();
+            if(name.equals("KorDAO")){
                 ourCards = objElement;
             }
         }
 
+        List<Card> cards = new ArrayList<Card>();
+
+        JsonArray holeCards = ourCards.get("hole_cards").getAsJsonArray();
+
+        for(JsonElement cardElement: holeCards){
+            JsonObject cardObj = cardElement.getAsJsonObject();
+            cards.add(new Card(cardObj.get("rank").getAsString(), cardObj.get("suit").getAsString()));
+        }
+
+        System.out.println("Our cards: " + cards);
 
 
-        System.out.println("blablabla" + ourCards);
+
+
 
 
         return 1;

@@ -18,6 +18,21 @@ public class Combinations {
         return false;
     }
 
+    public boolean hasFlush(Card[] cards) {
+        Map<String, Integer> suitCounter = new HashMap<>();
+        for (String suit: getSuits(cards)) {
+            if (suitCounter.containsKey(suit))
+                    suitCounter.put(suit, suitCounter.get(suit) + 1);
+            else
+                suitCounter.put(suit, 1);
+        }
+        for(String key: suitCounter.keySet())
+            if (suitCounter.get(key) == 5)
+                return true;
+        return false;
+
+    }
+
     public boolean hasFull(Card[] cards){
         Map<Integer, Integer> rankCounter = new HashMap<>();
         for(Integer rank: getRanks(cards)){
