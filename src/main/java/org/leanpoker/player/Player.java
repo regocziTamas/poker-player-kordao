@@ -12,6 +12,8 @@ public class Player {
 
     public static int betRequest(JsonElement request) {
 
+        System.out.println(request);
+
         JsonObject obj = request.getAsJsonObject();
 
         JsonElement el = obj.get("players");
@@ -27,7 +29,7 @@ public class Player {
         }
 
         System.out.println(ourCards);
-       
+
 
         return 1;
     }
