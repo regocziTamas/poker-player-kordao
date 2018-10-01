@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class Player {
 
-    static final String VERSION = "1.3";
+    static final String VERSION = "1.4";
 
     public static int betRequest(JsonElement request) {
 
@@ -27,7 +27,8 @@ public class Player {
             JsonObject objElement = element.getAsJsonObject();
             System.out.println("element" + element);
             System.out.println("objelement " + objElement);
-            if(objElement.get("name").toString().equals("KorDAO")){
+            String name = objElement.get("name").getAsString();
+            if(name.equals("KorDAO")){
                 System.out.println("megtaláltam!!!");
                 ourCards = objElement;
             }
