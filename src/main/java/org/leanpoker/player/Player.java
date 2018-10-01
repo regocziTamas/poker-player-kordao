@@ -10,7 +10,7 @@ public class Player {
 
     static Random rng = new Random();
 
-    static final String VERSION = String.valueOf(rng.nextInt(5000));
+    static final String VERSION = "Es megadtaa! " + String.valueOf(rng.nextInt(5000));
 
     public static int betRequest(JsonElement request) {
 
