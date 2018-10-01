@@ -29,7 +29,7 @@ public class Player {
             System.out.println("element" + element);
             System.out.println("objelement " + objElement);
             if(objElement.get("name").equals("KorDAO")){
-
+                System.out.println("megtaláltam!!!");
                 ourCards = objElement;
             }
         }
