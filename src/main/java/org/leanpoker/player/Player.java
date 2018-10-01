@@ -49,7 +49,6 @@ public class Player {
 
         JsonArray comCards = obj.get("community_cards").getAsJsonArray();
 
-        System.out.println("Comcards" + comCards);
 
         for(JsonElement comCardElement: comCards){
             System.out.println("community_cards");
@@ -57,7 +56,10 @@ public class Player {
             cards.add(new Card(comCardObj.get("rank").getAsString(), comCardObj.get("suit").getAsString()));
         }
 
-        System.err.println("Our cards: " + cards);
+        int currentBuyIn = obj.get("current_buy_in").getAsInt();
+
+        System.out.println("Current buy in: " + currentBuyIn);
+
 
 
 
