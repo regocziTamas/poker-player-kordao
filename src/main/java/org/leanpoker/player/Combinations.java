@@ -239,4 +239,14 @@ public class Combinations {
         return cards[0].getRank() > 9 && cards[1].getRank() > 9;
 
     }
+
+    public static boolean hasBiggerPairThanCommunity(Card[] cards){
+        boolean isItStillBigger = true;
+        for (int i = 2; i < cards.length; i++) {
+            if(cards[0].getRank() < cards[i].getRank()) {
+                isItStillBigger = false;
+            }
+        }
+        return isItStillBigger;
+    }
 }
