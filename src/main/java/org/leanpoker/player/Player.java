@@ -23,7 +23,6 @@ public class Player {
         System.out.println("ARRARRRARR: "+ arr);
 
 
-
         for(JsonElement element: arr){
             JsonObject objElement = element.getAsJsonObject();
             if(objElement.get("name").equals("KorDAO")){
