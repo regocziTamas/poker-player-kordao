@@ -19,6 +19,6 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Rank " + rank + ", Suit_ " + suit;
+        return "Rank " + rank + "| Suit " + suit;
     }
 }
