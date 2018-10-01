@@ -10,6 +10,7 @@ public class Strategy {
         if(Combinations.hasPairInHand(cards) != 0){
             return currentBuyIn+25;
         }
+
         return 0;
 
     }
