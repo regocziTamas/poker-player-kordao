@@ -6,15 +6,33 @@ public class Strategy {
         return 0;
     }
 
-    public static int secondPhase() {
+    public static int secondPhase(Card[] cardsArray, Integer buyIn) {
+        if (Combinations.hasPoker(cardsArray))
+            return 10000;
+        if (Combinations.hasDrill(cardsArray))
+            return 10000;
+        if (Combinations.hasFlush(cardsArray))
+            return 10000;
         return 0;
     }
 
-    public static int thirdPhase() {
+    public static int thirdPhase(Card[] cardsArray, Integer buyIn) {
+        if (Combinations.hasPoker(cardsArray))
+            return 10000;
+        if (Combinations.hasDrill(cardsArray))
+            return 10000;
+        if (Combinations.hasFlush(cardsArray))
+            return 10000;
         return 0;
     }
 
-    public static int fourthPhase() {
+    public static int fourthPhase(Card[] cardsArray, Integer buyIn) {
+        if (Combinations.hasPoker(cardsArray))
+            return 10000;
+        if (Combinations.hasDrill(cardsArray))
+            return 10000;
+        if (Combinations.hasFlush(cardsArray))
+            return 10000;
         return 0;
     }
 
