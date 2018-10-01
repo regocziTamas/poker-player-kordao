@@ -65,7 +65,7 @@ public class Player {
         }
 
         if (Combinations.hasPairInHand(cardsArray) >= 10)
-            return 50;
+            return currentBuyIn + currentBuyIn * (Combinations.hasPairInHand(cardsArray) - 10);
 
         return 10;
     }
