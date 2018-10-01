@@ -22,13 +22,31 @@ public class Player {
 
         JsonObject ourCards = null;
 
-
-
+        //
+        int playerOutCounter = 0;
+        int allPlayers = 0;
+        int ourstack = 0;
+        //
 
         for(JsonElement element: arr){
+
+
+            //
+            allPlayers++;
+            if (element.getAsJsonObject().get("status").getAsString().equals("out"))
+                playerOutCounter++;
+            //
+
+
+
             JsonObject objElement = element.getAsJsonObject();
             String name = objElement.get("name").getAsString();
             if(name.equals("KorDAO")){
+
+                //
+                ourstack = element.getAsJsonObject().get("stack").getAsInt();
+                //
+
                 ourCards = objElement;
             }
         }
@@ -64,8 +82,13 @@ public class Player {
             cardsArray[i] = cards.get(i);
         }
 
-        if (Combinations.hasPairInHand(cardsArray) >= 10)
-            return currentBuyIn + currentBuyIn * (Combinations.hasPairInHand(cardsArray) - 10);
+//        if (Combinations.hasPairInHand(cardsArray) >= 10)
+//            return currentBuyIn + currentBuyIn * (Combinations.hasPairInHand(cardsArray) - 10);
+
+        //
+        if (allPlayers - playerOutCounter == 2)
+            return ourstack;
+        //
 
 
         return 0;
