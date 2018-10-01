@@ -101,27 +101,34 @@ public class Combinations {
     }
 
     public static boolean isStraightPossible(Card[] cards){
-        cards = sortCards(cards);
-        boolean hasAce = false;
-        if (cards[cards.length - 1].getRank() == 14)
-            hasAce = true;
-        int counter = 0;
-        int gap = 0;
-        if (cards[0].getRank() == 2 && hasAce)
-            counter++;
-        for (int i = 0; i < cards.length; i++){
-            if (cards[i].getRank() == cards[i+1].getRank() - 1)
-                counter++;
-            else
-                if (gap == 0)
-                    gap = 1;
-                else {
-                    counter = 0;
-                    gap = 0;
-                }
+        Card[] myCards = {cards[0], cards[1]};
+        Card[] tableCards = new Card[cards.length - 2];
+        for (int i = 0; i < cards.length - 2; i++){
+            tableCards[i] = cards[i + 2];
         }
-        if (counter >= 5)
-            return true;
+        cards = sortCards(cards);
+        tableCards = sortCards(tableCards);
+        myCards = sortCards(myCards);
+
+        int neededSum = 0;
+        int sum = 0;
+
+        if (cards.length == 5)
+            for (int i = 0; i < 2; i++){
+                neededSum = 0;
+                sum = 0;
+                for (int j = i; j < 3; j++){
+                    if (neededSum == 0){
+                        sum = neededSum = cards[j].getRank();
+                    }
+                    else
+                        neededSum ++;
+                    if (cards[i].getRank() == cards[i+1].getRank() - 1)
+                        sum += cards[i].getRank();
+                }
+                if (neededSum - 1 == sum)
+                    return true;
+            }
         return false;
     }
 
