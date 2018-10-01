@@ -42,7 +42,16 @@ public class Player {
             cards.add(new Card(cardObj.get("rank").getAsString(), cardObj.get("suit").getAsString()));
         }
 
-        System.out.println("Our cards: " + cards);
+
+
+        JsonArray comCards = request.getAsJsonObject().get("community_cards").getAsJsonArray();
+        
+        for(JsonElement comCardElement: comCards){
+            JsonObject comCardObj = comCardElement.getAsJsonObject();
+            cards.add(new Card(comCardObj.get("rank").getAsString(), comCardObj.get("suit").getAsString()));
+        }
+
+        System.err.println("Our cards: " + cards);
 
 
 
