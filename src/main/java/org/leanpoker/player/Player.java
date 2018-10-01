@@ -31,7 +31,7 @@ public class Player {
 
 
 
-        System.out.println(ourCards);
+        System.out.println("blablabla" + ourCards);
 
 
         return 1;
