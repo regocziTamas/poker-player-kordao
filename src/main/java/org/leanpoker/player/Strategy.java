@@ -17,17 +17,17 @@ public class Strategy {
 
     }
 
-    public static int secondPhase(Card[] cardsArray, Integer buyIn, Integer ourStack) {
+    public static int secondPhase(Card[] cardsArray, Integer currentBuyIn, Integer ourStack) {
         if (Combinations.hasPoker(cardsArray))
-            return 10000;
+            return (int) Math.round(ourStack*1.0);
         if (Combinations.hasDrill(cardsArray))
             return (int) Math.round(ourStack*0.2);
         if (Combinations.hasFlush(cardsArray))
-            return 10000;
+            return (int) Math.round(ourStack*1.0);
         if (Combinations.hasStraight(cardsArray))
             return (int) Math.round(ourStack*0.5);
         if (Combinations.hasFull(cardsArray))
-            return (int) Math.round(ourStack*1);
+            return (int) Math.round(ourStack*1.0);
         if (Combinations.hasTwoPair(cardsArray))
             return (int) Math.round(ourStack*0.2);
         if (Combinations.hasTopPair(cardsArray))
