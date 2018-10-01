@@ -18,6 +18,39 @@ public class Combinations {
         return false;
     }
 
+    public boolean hasDrill(Card[] cards){
+        Map<Integer, Integer> rankCounter = new HashMap<>();
+        for(int rank: getRanks(cards)){
+            if (rankCounter.containsKey(rank))
+                rankCounter.put(rank, rankCounter.get(rank) + 1);
+            else
+                rankCounter.put(rank, 1);
+        }
+        for(int key: rankCounter.keySet())
+            if (rankCounter.get(key) == 3)
+                return true;
+        return false;
+    }
+
+    public int hasPairInHand(Card[] cards) {
+        if (cards[0].getRank() == cards[1].getRank())
+            return cards[0].getRank();
+        else
+            return 0;
+    }
+
+    public boolean hasPair(Card[] cards){
+        try {
+            for (int i=2; i<7; i++) {
+                if (cards[i].getRank() == cards[0].getRank() || cards[i].getRank() == cards[1].getRank())
+                    return true;
+            }
+        } catch (Exception e) {
+
+        }
+        return false;
+    }
+
     public boolean hasFlush(Card[] cards) {
         Map<String, Integer> suitCounter = new HashMap<>();
         for (String suit: getSuits(cards)) {
@@ -30,8 +63,9 @@ public class Combinations {
             if (suitCounter.get(key) == 5)
                 return true;
         return false;
-
     }
+
+
 
     public boolean hasFull(Card[] cards){
         Map<Integer, Integer> rankCounter = new HashMap<>();
@@ -75,6 +109,10 @@ public class Combinations {
         if (counter >= 5)
             return true;
         return false;
+    }
+
+    public boolean hasStraightFlush(Card[] cards) {
+        return hasStraight(cards) && hasFlush(cards);
     }
 
     private Card[] sortCards(Card[] cards){

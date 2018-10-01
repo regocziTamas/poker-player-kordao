@@ -7,10 +7,13 @@ import com.google.gson.JsonObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class Player {
 
-    static final String VERSION = "1.5";
+    static Random rng = new Random();
+
+    static final String VERSION = String.valueOf(rng.nextInt(5000));
 
     public static int betRequest(JsonElement request) {
 
@@ -42,14 +45,24 @@ public class Player {
             cards.add(new Card(cardObj.get("rank").getAsString(), cardObj.get("suit").getAsString()));
         }
 
-        System.out.println("Our cards: " + cards);
+
+
+        JsonArray comCards = request.getAsJsonObject().get("community_cards").getAsJsonArray();
+
+        System.out.println("Comcards" + comCards);
+
+        for(JsonElement comCardElement: comCards){
+            System.out.println("community_cards");
+            JsonObject comCardObj = comCardElement.getAsJsonObject();
+            cards.add(new Card(comCardObj.get("rank").getAsString(), comCardObj.get("suit").getAsString()));
+        }
+
+        System.err.println("Our cards: " + cards);
 
 
 
 
-
-
-        return 1;
+        return 10;
     }
 
     public static void showdown(JsonElement game) {
