@@ -7,10 +7,12 @@ public class Strategy {
     public static int firstPhase(Card[] cards, Integer currentBuyIn, Integer ourStack) {
 
         if(Combinations.hasPairInHand(cards) != 0){
-            return currentBuyIn+25;
+            if (currentBuyIn < ourStack*0.1)
+                return currentBuyIn+25;
         }
 
         if(Combinations.checkForAceAndKing(cards)){
+            if (currentBuyIn < ourStack*0.20)
             return currentBuyIn + Math.min(ourStack,10);
         }
 
