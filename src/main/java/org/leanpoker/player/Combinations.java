@@ -209,7 +209,7 @@ public class Combinations {
         return suits;
     }
 
-    public boolean hasTopPair(Card[] cards){
+    public static boolean hasTopPair(Card[] cards){
         boolean hasPair = hasPair(cards);
 
         Card highestCardinHand = cards[0].getRank() > cards[1].getRank() ? cards[0] : cards[1];
