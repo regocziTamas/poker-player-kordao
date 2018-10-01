@@ -27,7 +27,7 @@ public class Strategy {
     public static int secondPhase(Card[] cardsArray, Integer currentBuyIn, Integer ourStack) {
         if ((Combinations.hasPairInHand(cardsArray) > 0) && Combinations.hasBiggerPairThanCommunity(cardsArray))
 
-            return (int) Math.round(ourStack*0.7);
+            return (int) Math.round(ourStack*1);
         if (Combinations.hasPoker(cardsArray)) {
             System.out.println("poker");
             return (int) Math.round(ourStack * 0.5);
@@ -36,14 +36,14 @@ public class Strategy {
             return (int) Math.round(ourStack*0.2);
         if (Combinations.hasFlush(cardsArray)) {
             System.out.println("flush");
-            return (int) Math.round(ourStack*0.5);
+            return (int) Math.round(ourStack*1);
         }
         if (Combinations.hasStraight(cardsArray))
             return (int) Math.round(ourStack*0.5);
-        if (Combinations.hasFull(cardsArray)) {
+        /*if (Combinations.hasFull(cardsArray)) {
             System.out.println("full");
             return (int) Math.round(ourStack * 0.5);
-        }
+        }*/
         if (Combinations.hasTwoPair(cardsArray))
             return (int) Math.round(ourStack*0.3); //0.2
         if (Combinations.hasTopPair(cardsArray))
@@ -54,11 +54,11 @@ public class Strategy {
 
     public static int thirdPhase(Card[] cardsArray, Integer buyIn, Integer ourStack) {
         if (Combinations.hasPoker(cardsArray))
-            return (int) Math.round(ourStack*0.5);
+            return (int) Math.round(ourStack*1);
         if (Combinations.hasFlush(cardsArray))
-            return (int) Math.round(ourStack*0.8); //0.7
-        if (Combinations.hasFull(cardsArray))
-            return (int) Math.round(ourStack*0.7);
+            return (int) Math.round(ourStack*1); //0.7
+        //if (Combinations.hasFull(cardsArray))
+        //    return (int) Math.round(ourStack*0.7);
         if (Combinations.hasStraight(cardsArray))
             return (int) Math.round(ourStack*0.5);
         if (Combinations.hasTwoPair(cardsArray))
@@ -68,11 +68,11 @@ public class Strategy {
 
     public static int fourthPhase(Card[] cardsArray, Integer buyIn, Integer ourStack) {
         if (Combinations.hasPoker(cardsArray))
-            return (int) Math.round(ourStack*0.5);
+            return (int) Math.round(ourStack*1);
         if (Combinations.hasFlush(cardsArray))
-            return (int) Math.round(ourStack*0.5);
-        if (Combinations.hasFull(cardsArray))
-            return (int) Math.round(ourStack*0.5);
+            return (int) Math.round(ourStack*1);
+        //if (Combinations.hasFull(cardsArray))
+        //    return (int) Math.round(ourStack*0.5);
         if (Combinations.hasStraight(cardsArray))
             return (int) Math.round(ourStack*0.5);
 
