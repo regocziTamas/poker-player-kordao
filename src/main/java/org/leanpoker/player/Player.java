@@ -12,7 +12,7 @@ public class Player {
 
     public static int betRequest(JsonElement request) {
 
-        System.out.println(request);
+        System.out.println("REQUEST" + request);
 
         JsonObject obj = request.getAsJsonObject();
 
