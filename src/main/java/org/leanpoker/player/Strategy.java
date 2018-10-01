@@ -18,35 +18,35 @@ public class Strategy {
         if (Combinations.hasPoker(cardsArray))
             return ourStack;
         if (Combinations.hasFlush(cardsArray))
-            return ourStack;
+            return (int) Math.round(ourStack*0.5);
         if (Combinations.hasFull(cardsArray))
-            return ourStack;
+            return (int) Math.round(ourStack*0.5);
         if (Combinations.hasStraight(cardsArray))
-            return ourStack;
+            return (int) Math.round(ourStack*0.5);
         return 0;
     }
 
     public static int thirdPhase(Card[] cardsArray, Integer buyIn, Integer ourStack) {
         if (Combinations.hasPoker(cardsArray))
-            return ourStack;
+            return (int) Math.round(ourStack*1);
         if (Combinations.hasFlush(cardsArray))
-            return ourStack;
+            return (int) Math.round(ourStack*0.5);
         if (Combinations.hasFull(cardsArray))
-            return ourStack;
+            return (int) Math.round(ourStack*0.5);
         if (Combinations.hasStraight(cardsArray))
-            return ourStack;
+            return (int) Math.round(ourStack*0.5);
         return 0;
     }
 
     public static int fourthPhase(Card[] cardsArray, Integer buyIn, Integer ourStack) {
         if (Combinations.hasPoker(cardsArray))
-            return ourStack;
+            return (int) Math.round(ourStack*1);
         if (Combinations.hasFlush(cardsArray))
-            return ourStack;
+            return (int) Math.round(ourStack*0.5);
         if (Combinations.hasFull(cardsArray))
-            return ourStack;
+            return (int) Math.round(ourStack*0.5);
         if (Combinations.hasStraight(cardsArray))
-            return ourStack;
+            return (int) Math.round(ourStack*0.5);
         return 0;
     }
 
