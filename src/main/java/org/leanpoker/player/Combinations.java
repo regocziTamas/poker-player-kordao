@@ -39,12 +39,14 @@ public class Combinations {
             return 0;
     }
 
-    public static boolean hasPair(Card[] cards){
+    public static int hasPair(Card[] cards){
         for (int i=2; i<cards.length; i++) {
-            if (cards[i].getRank() == cards[0].getRank() || cards[i].getRank() == cards[1].getRank())
-                return true;
+            if (cards[i].getRank() == cards[0].getRank())
+                return cards[0].getRank();
+            if (cards[i].getRank() == cards[1].getRank())
+                return cards[1].getRank();
         }
-        return false;
+        return 0;
     }
 
     public static boolean hasTwoPair(Card[] cards){
@@ -213,30 +215,28 @@ public class Combinations {
     }
 
     public static boolean hasTopPair(Card[] cards){
-        boolean hasPair = hasPair(cards);
+        int pair = hasPair(cards);
+        int maxi = 0;
 
-        Card highestCardinHand = cards[0].getRank() > cards[1].getRank() ? cards[0] : cards[1];
-        if(hasPair){
+        if(pair > 0){
             for(int i = 2; i<cards.length;i++){
-                if(cards[i].getRank() == highestCardinHand.getRank()){
-                    return true;
+                if(cards[i].getRank() > maxi){
+                    maxi = cards[i].getRank();
                 }
             }
-            return false;
+        }
 
-
-        }else{return false;}
-
-
+        if (cards[0].getRank() == maxi || cards[1].getRank() == maxi) {
+            return true;
+        }
+        return false;
     }
 
-    public boolean hasQuiteGoodHand(Card[] cards){
+    public static boolean hasQuiteGoodHand(Card[] cards){
         if(!cards[0].getSuit().equals(cards[1].getSuit())){
             return false;
         }
         return cards[0].getRank() > 9 && cards[1].getRank() > 9;
-
-
 
     }
 }

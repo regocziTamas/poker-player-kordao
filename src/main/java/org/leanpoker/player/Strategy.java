@@ -13,6 +13,11 @@ public class Strategy {
         if(Combinations.checkForAceAndKing(cards)){
             return currentBuyIn + Math.min(ourStack,10);
         }
+
+        if(Combinations.hasQuiteGoodHand(cards)) {
+            if (currentBuyIn < 50)
+                return currentBuyIn;
+        }
         return 0;
 
     }
