@@ -82,8 +82,8 @@ public class Player {
             cardsArray[i] = cards.get(i);
         }
 
-//        if (Combinations.hasPairInHand(cardsArray) >= 10)
-//            return currentBuyIn + currentBuyIn * (Combinations.hasPairInHand(cardsArray) - 10);
+        if (Combinations.hasPairInHand(cardsArray) >= 10)
+            return currentBuyIn + currentBuyIn * (Combinations.hasPairInHand(cardsArray) - 10);
 
         //
         if (allPlayers - playerOutCounter == 2)
