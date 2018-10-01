@@ -17,9 +17,9 @@ public class Strategy {
     public static int secondPhase(Card[] cardsArray, Integer buyIn, Integer ourStack) {
         if (Combinations.hasPoker(cardsArray))
             return ourStack;
-        if (Combinations.hasDrill(cardsArray))
-            return ourStack;
         if (Combinations.hasFlush(cardsArray))
+            return ourStack;
+        if (Combinations.hasFull(cardsArray))
             return ourStack;
         if (Combinations.hasStraight(cardsArray))
             return ourStack;
@@ -29,9 +29,9 @@ public class Strategy {
     public static int thirdPhase(Card[] cardsArray, Integer buyIn, Integer ourStack) {
         if (Combinations.hasPoker(cardsArray))
             return ourStack;
-        if (Combinations.hasDrill(cardsArray))
-            return ourStack;
         if (Combinations.hasFlush(cardsArray))
+            return ourStack;
+        if (Combinations.hasFull(cardsArray))
             return ourStack;
         if (Combinations.hasStraight(cardsArray))
             return ourStack;
@@ -41,9 +41,9 @@ public class Strategy {
     public static int fourthPhase(Card[] cardsArray, Integer buyIn, Integer ourStack) {
         if (Combinations.hasPoker(cardsArray))
             return ourStack;
-        if (Combinations.hasDrill(cardsArray))
-            return ourStack;
         if (Combinations.hasFlush(cardsArray))
+            return ourStack;
+        if (Combinations.hasFull(cardsArray))
             return ourStack;
         if (Combinations.hasStraight(cardsArray))
             return ourStack;
