@@ -25,6 +25,8 @@ public class Strategy {
     }
 
     public static int secondPhase(Card[] cardsArray, Integer currentBuyIn, Integer ourStack) {
+        if ((Combinations.hasPairInHand(cardsArray) > 0) && Combinations.hasBiggerPairThanCommunity(cardsArray))
+            return (int) Math.round(ourStack*0.7);
         if (Combinations.hasPoker(cardsArray))
             return (int) Math.round(ourStack*1.0);
         if (Combinations.hasDrill(cardsArray))
