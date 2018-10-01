@@ -26,17 +26,24 @@ public class Strategy {
 
     public static int secondPhase(Card[] cardsArray, Integer currentBuyIn, Integer ourStack) {
         if ((Combinations.hasPairInHand(cardsArray) > 0) && Combinations.hasBiggerPairThanCommunity(cardsArray))
+
             return (int) Math.round(ourStack*0.7);
-        if (Combinations.hasPoker(cardsArray))
-            return (int) Math.round(ourStack*0.5);
+        if (Combinations.hasPoker(cardsArray)) {
+            System.out.println("poker");
+            return (int) Math.round(ourStack * 0.5);
+        }
         if (Combinations.hasDrill(cardsArray))
             return (int) Math.round(ourStack*0.2);
-        if (Combinations.hasFlush(cardsArray))
+        if (Combinations.hasFlush(cardsArray)) {
+            System.out.println("flush");
             return (int) Math.round(ourStack*0.5);
+        }
         if (Combinations.hasStraight(cardsArray))
             return (int) Math.round(ourStack*0.5);
-        if (Combinations.hasFull(cardsArray))
-            return (int) Math.round(ourStack*0.5);
+        if (Combinations.hasFull(cardsArray)) {
+            System.out.println("full");
+            return (int) Math.round(ourStack * 0.5);
+        }
         if (Combinations.hasTwoPair(cardsArray))
             return (int) Math.round(ourStack*0.3); //0.2
         if (Combinations.hasTopPair(cardsArray))
