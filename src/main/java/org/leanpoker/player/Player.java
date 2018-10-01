@@ -18,15 +18,18 @@ public class Player {
 
         JsonElement el = obj.get("players");
 
-        JsonArray arr = el.getAsJsonArray();
+        JsonArray arr = ((JsonArray) el);
 
-        JsonElement ourCards = null;
+        JsonObject ourCards = null;
 
         for(JsonElement element: arr){
-            if(((JsonObject) element).get("name").equals("KorDAO")){
-                ourCards = element;
+            JsonObject objElement = (JsonObject) element;
+            if(objElement.get("name").equals("KorDAO")){
+                ourCards = objElement;
             }
         }
+
+
 
         System.out.println(ourCards);
 
