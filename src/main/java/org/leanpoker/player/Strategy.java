@@ -1,9 +1,17 @@
 package org.leanpoker.player;
 
+import java.util.List;
+
 public class Strategy {
 
-    public static int firstPhase(Card[] cardsArray, Integer buyIn) {
+    public static int firstPhase(Card[] cards, int currentBuyIn) {
+
+        if(Combinations.hasPairInHand(cards) != 0){
+            return currentBuyIn+25;
+        }
+
         return 0;
+
     }
 
     public static int secondPhase(Card[] cardsArray, Integer buyIn) {
