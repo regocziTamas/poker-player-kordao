@@ -4,10 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class Player {
 
@@ -61,12 +58,19 @@ public class Player {
         System.out.println("Current buy in: " + currentBuyIn);
 
 
+        Card[] cardsArray = new Card[cards.size()];
 
+        for (int i=0; i < cards.size(); i++) {
+            cardsArray[i] = cards.get(i);
+        }
 
+        if (Combinations.hasPairInHand(cardsArray) >= 10)
+            return 50;
 
         return 10;
     }
 
     public static void showdown(JsonElement game) {
     }
+
 }
