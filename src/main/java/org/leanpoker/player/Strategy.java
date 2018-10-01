@@ -30,8 +30,8 @@ public class Strategy {
             return (int) Math.round(ourStack*1.0);
         if (Combinations.hasTwoPair(cardsArray))
             return (int) Math.round(ourStack*0.2);
-        //if (Combinations.hasTopPair(cardsArray))
-        //    return (int) Math.round(ourStack*0.1);
+        if (Combinations.hasTopPair(cardsArray))
+            return (int) Math.round(ourStack*0.1);
 
         return 0;
     }

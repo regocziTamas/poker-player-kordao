@@ -40,13 +40,9 @@ public class Combinations {
     }
 
     public static boolean hasPair(Card[] cards){
-        try {
-            for (int i=2; i<7; i++) {
-                if (cards[i].getRank() == cards[0].getRank() || cards[i].getRank() == cards[1].getRank())
-                    return true;
-            }
-        } catch (Exception e) {
-
+        for (int i=2; i<cards.length; i++) {
+            if (cards[i].getRank() == cards[0].getRank() || cards[i].getRank() == cards[1].getRank())
+                return true;
         }
         return false;
     }
@@ -137,7 +133,7 @@ public class Combinations {
         int counter = 0;
         if (cards[0].getRank() == 2 && hasAce)
             counter++;
-        for (int i = 0; i < cards.length; i++){
+        for (int i = 0; i < cards.length-1; i++){
             if (cards[i].getRank() == cards[i+1].getRank() - 1)
                 counter++;
             else
