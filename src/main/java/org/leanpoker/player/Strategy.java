@@ -3,7 +3,7 @@ package org.leanpoker.player;
 public class Strategy {
 
     public static int firstPhase(Card[] cardsArray, Integer buyIn) {
-        return 0;
+        return 0;g
     }
 
     public static int secondPhase(Card[] cardsArray, Integer buyIn) {
@@ -12,6 +12,8 @@ public class Strategy {
         if (Combinations.hasDrill(cardsArray))
             return 10000;
         if (Combinations.hasFlush(cardsArray))
+            return 10000;
+        if (Combinations.hasStraight(cardsArray))
             return 10000;
         return 0;
     }
@@ -23,6 +25,8 @@ public class Strategy {
             return 10000;
         if (Combinations.hasFlush(cardsArray))
             return 10000;
+        if (Combinations.hasStraight(cardsArray))
+            return 10000;
         return 0;
     }
 
@@ -32,6 +36,8 @@ public class Strategy {
         if (Combinations.hasDrill(cardsArray))
             return 10000;
         if (Combinations.hasFlush(cardsArray))
+            return 10000;
+        if (Combinations.hasStraight(cardsArray))
             return 10000;
         return 0;
     }
