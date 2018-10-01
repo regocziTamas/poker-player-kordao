@@ -3,7 +3,7 @@ package org.leanpoker.player;
 public class Strategy {
 
     public static int firstPhase(Card[] cardsArray, Integer buyIn) {
-        return 0;g
+        return 0;
     }
 
     public static int secondPhase(Card[] cardsArray, Integer buyIn) {
