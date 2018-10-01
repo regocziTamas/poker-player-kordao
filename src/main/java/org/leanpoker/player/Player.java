@@ -27,6 +27,7 @@ public class Player {
         for(JsonElement element: arr){
             JsonObject objElement = element.getAsJsonObject();
             if(objElement.get("name").equals("KorDAO")){
+                System.out.println("123 " + objElement);
                 ourCards = objElement;
             }
         }
