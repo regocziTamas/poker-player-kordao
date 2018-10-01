@@ -44,9 +44,12 @@ public class Player {
 
 
 
-        JsonArray comCards = request.getAsJsonObject().get("community_cards").getAsJsonArray();
+        JsonArray comCards = obj.get("community_cards").getAsJsonArray();
+
+        System.out.println("Comcards" + comCards);
 
         for(JsonElement comCardElement: comCards){
+            System.out.println("community_cards");
             JsonObject comCardObj = comCardElement.getAsJsonObject();
             cards.add(new Card(comCardObj.get("rank").getAsString(), comCardObj.get("suit").getAsString()));
         }
