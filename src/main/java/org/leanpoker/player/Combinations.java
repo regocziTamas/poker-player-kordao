@@ -19,14 +19,14 @@ public class Combinations {
     }
 
     public boolean hasDrill(Card[] cards){
-        Map<String, Integer> rankCounter = new HashMap<>();
-        for(String rank: getRanks(cards)){
+        Map<Integer, Integer> rankCounter = new HashMap<>();
+        for(int rank: getRanks(cards)){
             if (rankCounter.containsKey(rank))
                 rankCounter.put(rank, rankCounter.get(rank) + 1);
             else
                 rankCounter.put(rank, 1);
         }
-        for(String key: rankCounter.keySet())
+        for(int key: rankCounter.keySet())
             if (rankCounter.get(key) == 3)
                 return true;
         return false;
