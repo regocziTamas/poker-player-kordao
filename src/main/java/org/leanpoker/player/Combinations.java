@@ -64,6 +64,20 @@ public class Combinations {
         return false;
     }
 
+    public static boolean isFlushPossible(Card[] cards) {
+        Map<String, Integer> suitCounter = new HashMap<>();
+        for (String suit: getSuits(cards)) {
+            if (suitCounter.containsKey(suit))
+                suitCounter.put(suit, suitCounter.get(suit) + 1);
+            else
+                suitCounter.put(suit, 1);
+        }
+        for(String key: suitCounter.keySet())
+            if (suitCounter.get(key) == 4)
+                return true;
+        return false;
+    }
+
     public static boolean hasFlush(Card[] cards) {
         Map<String, Integer> suitCounter = new HashMap<>();
         for (String suit: getSuits(cards)) {
