@@ -60,9 +60,7 @@ public class Player {
 
 
 
-
-
-        return 1;
+        return 10;
     }
 
     public static void showdown(JsonElement game) {

@@ -93,7 +93,11 @@ public class Combinations {
     }
 
     public boolean hasStraight(Card[] cards){
+        return false;
+    }
 
+    public boolean hasStraightFlush(Card[] cards) {
+        return hasStraight(cards) && hasFlush(cards);
     }
 
     private Card[] sortCards(Card[] cards){
